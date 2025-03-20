@@ -1,0 +1,86 @@
+.body {
+    margin: 0;
+    padding-top: 60px;
+    overflow: hidden;
+}
+
+.navbar {
+    width: 100%;
+    height: 60px;
+    background-color: #3E7FAD;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+    h1 {
+        text-align: center;
+        color: white;
+    }
+}
+
+.menu-lateral {
+    width: 80px;
+    height: 100%;
+    background-color: #88A5B8;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+
+    a {
+        color: white;
+        text-decoration: none;
+        margin-bottom: 15px;
+        font-size: 18px;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+
+    .botoes-menu-lateral {
+        width: 50px;
+        height: 50px;
+        background-color: #FFD24F;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 10px auto;
+
+        &:hover {
+            background-color: darken(#FFD24F, 10%);
+        }
+
+        &:active {
+            background-color: lighten(#FFD24F, 10%);
+        }
+    }
+
+    .botao-sair{
+        position: absolute;
+        bottom: 12%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 35px;
+        height: 35px;
+        background-color: #FFD24F;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 10px auto;
+
+        &:hover {
+            background-color: darken(#FFD24F, 10%);
+        }
+
+        &:active {
+            background-color: lighten(#FFD24F, 10%);
+        }
+    }
+
+}

@@ -1,0 +1,102 @@
+body {
+    margin: 0;
+    padding-top: 60px;
+    overflow: hidden;
+}
+
+.layout {
+    flex: 1; /* Faz com que a div ocupe o espaço restante */
+    max-width: none; /* Remove o limite de largura */
+
+    display: flex; 
+    flex-direction: row; 
+    height: 100vh; 
+}
+
+app-menus {
+    flex: 0 0 7%; /* Sidebar width (7% of the screen) */
+    background-color: #f4f4f4; /* Background color for the menu */
+    margin: 0; /* Remove any margin from the sidebar */
+    padding: 0;
+
+    @media (min-width: 1200px) {
+        flex: 0 0 5%; /* Adjust width for larger screens */
+    }
+
+    @media (max-width: 1024px) {
+        flex: 0 0 10%; /* Adjust width for smaller desktop screens */
+    }
+}
+
+h1{
+    font-family: 'Zain', sans-serif;
+    color: black;
+    text-align: center;
+    margin-top: 0;
+}
+
+.container-lateral{
+    flex: 1; 
+    background-color: #F1F0EC;
+    height: 100vh;
+    margin: 0; 
+    padding: 0; 
+    display: flex; 
+    flex-direction: column;
+    max-width: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .calendario {
+        height: 50%;
+        max-width: 250px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+    }
+}
+
+.semanas {
+    max-width: 300px;
+    border: none;
+    border-radius: 10px;
+    margin: 4px 0 4px 35px;
+    background-color: transparent;
+
+    &.selecionada {
+        background-color: #88A5B8;
+    }
+}
+
+.dias {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #FFD24F;
+    border-radius: 50%;
+    margin: 5px;
+    color: #FFD24F;
+}
+
+.nome-dias {
+    font-family: 'Zain', sans-serif;
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    justify-content: space-between;
+    width: 260px;
+    margin-left: 20px;
+    .formata-nomes {
+        font-family: 'Zain', sans-serif;
+        color: black;
+        text-align: center;
+        width: 10px;
+    }
+}

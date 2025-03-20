@@ -1,0 +1,30 @@
+<div class="layout">
+    <app-menus></app-menus>
+    <div class="container-lateral">
+        <div class="calendario">
+            <h1>{{ mesAtualFormatado }}</h1>
+
+            <ul class="nome-dias">
+                <li class="formata-nomes">S</li>
+                <li class="formata-nomes">S</li>
+                <li class="formata-nomes">T</li>
+                <li class="formata-nomes">Q</li>
+                <li class="formata-nomes">Q</li>
+                <li class="formata-nomes">S</li>
+                <li>S</li>
+            </ul>
+
+            <div *ngFor="let semana of semanas; let i = index">
+                <button class="semanas" [ngClass]="{ 'selecionada': semanaSelecionada === i }"
+                    (click)="selecionarSemana(i)">
+                    <ul style="display: flex; list-style-type: none; padding: 0; margin: 0;">
+                        <li *ngFor="let dia of semana" [ngClass]="{ 'dias': dia !== 0 }" [style.width.px]="30"
+                            [style.height.px]="30" [style.margin.px]="5">
+                            {{ dia === 0 ? '' : dia }}
+                        </li>
+                    </ul>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

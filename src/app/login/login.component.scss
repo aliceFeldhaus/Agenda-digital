@@ -1,0 +1,47 @@
+body {
+    background-color: #EBE8DE;
+}
+
+.card-login{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #3E7FAD;
+    border-radius: 8px;
+    padding: 10%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1, label{
+    text-align: center;
+    color: white;
+}
+
+input{
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: none;
+}
+
+button{
+    width: 100%;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #FFD24F;
+    color: white;
+    cursor: pointer;
+}
+
+.esqeuci-senha{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    color: white;
+    cursor: pointer;
+}
