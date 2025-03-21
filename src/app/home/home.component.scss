@@ -5,43 +5,50 @@ body {
 }
 
 .layout {
-    flex: 1; /* Faz com que a div ocupe o espaço restante */
-    max-width: none; /* Remove o limite de largura */
+    flex: 1;
+    /* Faz com que a div ocupe o espaço restante */
+    max-width: none;
+    /* Remove o limite de largura */
 
-    display: flex; 
-    flex-direction: row; 
-    height: 100vh; 
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
 }
 
 app-menus {
-    flex: 0 0 7%; /* Sidebar width (7% of the screen) */
-    background-color: #f4f4f4; /* Background color for the menu */
-    margin: 0; /* Remove any margin from the sidebar */
+    flex: 0 0 7%;
+    /* Sidebar width (7% of the screen) */
+    background-color: #f4f4f4;
+    /* Background color for the menu */
+    margin: 0;
+    /* Remove any margin from the sidebar */
     padding: 0;
 
     @media (min-width: 1200px) {
-        flex: 0 0 5%; /* Adjust width for larger screens */
+        flex: 0 0 5%;
+        /* Adjust width for larger screens */
     }
 
     @media (max-width: 1024px) {
-        flex: 0 0 10%; /* Adjust width for smaller desktop screens */
+        flex: 0 0 10%;
+        /* Adjust width for smaller desktop screens */
     }
 }
 
-h1{
+h1 {
     font-family: 'Zain', sans-serif;
     color: black;
     text-align: center;
     margin-top: 0;
 }
 
-.container-lateral{
-    flex: 1; 
+.container-lateral {
+    flex: 1;
     background-color: #F1F0EC;
     height: 100vh;
-    margin: 0; 
-    padding: 0; 
-    display: flex; 
+    margin: 0;
+    padding: 0;
+    display: flex;
     flex-direction: column;
     max-width: 350px;
     display: flex;
@@ -51,7 +58,6 @@ h1{
     .calendario {
         height: 50%;
         max-width: 250px;
-        text-align: center;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -89,14 +95,61 @@ h1{
     display: flex;
     list-style-type: none;
     padding: 0;
-    margin: 0;
+    margin-top: 20px;
     justify-content: space-between;
     width: 260px;
     margin-left: 20px;
+
     .formata-nomes {
         font-family: 'Zain', sans-serif;
         color: black;
         text-align: center;
         width: 10px;
     }
+}
+
+.container-meses {
+    display: flex;
+    position: fixed;
+    top: 25%;
+    background-color: #F1F0EC;
+    z-index: 10;
+    margin: 20px;
+    align-items: center;
+    justify-content: space-between;
+
+    h1 {
+        flex: 1;
+        text-align: center;
+        margin: 0;
+    }
+}
+
+.navegacao-meses {
+    margin: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.botao-agendamento{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+
+.btn-agendar{
+    background-color: #FFD24F;
+    color: black;
+    font-family: 'Zain', sans-serif;
+    font-size: 20px;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 0 10px;
+}
 }

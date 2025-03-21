@@ -2,7 +2,15 @@
     <app-menus></app-menus>
     <div class="container-lateral">
         <div class="calendario">
-            <h1>{{ mesAtualFormatado }}</h1>
+            <div class="container-meses">
+                <button class="navegacao-meses" (click)="voltarMes()">
+                    <mat-icon>arrow_back_ios</mat-icon>
+                </button>
+                <h1>{{ mesAtualFormatado }}</h1>
+                <button class="navegacao-meses" (click)="avancarMes()">
+                    <mat-icon>arrow_forward_ios</mat-icon>
+                </button>
+            </div>
 
             <ul class="nome-dias">
                 <li class="formata-nomes">S</li>
@@ -26,5 +34,9 @@
                 </button>
             </div>
         </div>
+        <div class="botao-agendamento">
+            <button class="btn-agendar" (click)="abrirModal()">Agendar</button>
+        </div>
     </div>
+
 </div>

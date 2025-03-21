@@ -5,6 +5,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { CommonModule } from '@angular/common';
 import { MenusComponent } from '../menus/menus.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'; // Add this if it's a Web Component
+import { ModalAgendarComponent } from '../modal-agendar/modal-agendar.component'; // Adjust the path if necessary
 
 @Component({
   selector: 'app-home',
@@ -15,18 +17,25 @@ import { MenusComponent } from '../menus/menus.component';
     MatCardModule,
     MatDatepickerModule,
     CommonModule,
-    MenusComponent
+    MenusComponent,
+    ModalAgendarComponent
   ],
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  // If 'app-modal-agendar' is a Web Component, include the following:
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  // If 'app-modal-agendar' is an Angular component, ensure its module is imported in the parent module.
 })
 export class HomeComponent {
+  modalAberto: boolean = false;
+  
   semanas: number[][] = [];
   mesAtualFormatado: string = '';
   semanaSelecionada: number | null = null;
+  dataAtual: Date = new Date();
 
   ngOnInit() {
-    this.gerarCalendario(new Date());
+    this.gerarCalendario(this.dataAtual);
   }
 
   gerarCalendario(data: Date) {
@@ -72,13 +81,46 @@ export class HomeComponent {
     }
 
     this.semanas = semanas;
-    // Selecionar a semana que contém o dia atual
-    const hoje = new Date().getDate();
-    this.semanaSelecionada = semanas.findIndex(semana => semana.includes(hoje));
+
+    // Selecionar a semana
+    const hoje = new Date();
+    if (data.getMonth() === hoje.getMonth() && data.getFullYear() === hoje.getFullYear()) {
+      // Se for o mês atual, selecione a semana que contém o dia atual
+      this.semanaSelecionada = semanas.findIndex(semana => semana.includes(hoje.getDate()));
+    } else {
+      // Caso contrário, selecione a primeira semana
+      this.semanaSelecionada = 0;
+    }
   }
 
   selecionarSemana(indice: number) {
     console.log('Semana selecionada:', indice);
     this.semanaSelecionada = indice; // Atualiza a semana selecionada
+  }
+
+  voltarMes() {
+    this.dataAtual.setMonth(this.dataAtual.getMonth() - 1); // Subtrair um mês da data atual
+    this.gerarCalendario(this.dataAtual); // Gerar o calendário para o mês anterior
+  }
+
+  avancarMes(){
+    this.dataAtual.setMonth(this.dataAtual.getMonth() + 1); // Adicionar um mês à data atual
+    this.gerarCalendario(this.dataAtual); // Gerar o calendário para o próximo mês
+  }
+
+  abrirModal() {
+    const modal = document.querySelector('app-modal-agendar') as HTMLElement;
+    if (modal) {
+      modal.style.display = 'block'; // Exibe o modal
+      this.modalAberto = true; // Atualiza o estado do modal
+    }
+  }
+
+  fecharModal() {
+    const modal = document.querySelector('app-modal-agendar') as HTMLElement;
+    if (modal) {
+      modal.style.display = 'none'; // Oculta o modal
+      this.modalAberto = false; // Atualiza o estado do modal
+    }
   }
 }
