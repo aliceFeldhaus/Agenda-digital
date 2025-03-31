@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, ChangeDetectorRef } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatIconModule } from '@angular/material/icon';
@@ -22,13 +22,11 @@ import { ModalAgendarComponent } from '../modal-agendar/modal-agendar.component'
   ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  // If 'app-modal-agendar' is a Web Component, include the following:
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  // If 'app-modal-agendar' is an Angular component, ensure its module is imported in the parent module.
 })
 export class HomeComponent {
   modalAberto: boolean = false;
-  
+
   semanas: number[][] = [];
   mesAtualFormatado: string = '';
   semanaSelecionada: number | null = null;
@@ -103,24 +101,15 @@ export class HomeComponent {
     this.gerarCalendario(this.dataAtual); // Gerar o calendário para o mês anterior
   }
 
-  avancarMes(){
+  avancarMes() {
     this.dataAtual.setMonth(this.dataAtual.getMonth() + 1); // Adicionar um mês à data atual
     this.gerarCalendario(this.dataAtual); // Gerar o calendário para o próximo mês
   }
-
   abrirModal() {
-    const modal = document.querySelector('app-modal-agendar') as HTMLElement;
-    if (modal) {
-      modal.style.display = 'block'; // Exibe o modal
-      this.modalAberto = true; // Atualiza o estado do modal
+      this.modalAberto = true;
     }
-  }
-
-  fecharModal() {
-    const modal = document.querySelector('app-modal-agendar') as HTMLElement;
-    if (modal) {
-      modal.style.display = 'none'; // Oculta o modal
-      this.modalAberto = false; // Atualiza o estado do modal
+  
+    fecharModal() {
+      this.modalAberto = false;
     }
-  }
 }

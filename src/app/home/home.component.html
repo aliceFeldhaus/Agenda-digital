@@ -13,13 +13,13 @@
             </div>
 
             <ul class="nome-dias">
-                <li class="formata-nomes">S</li>
+                <li class="formata-nomes">D</li>
                 <li class="formata-nomes">S</li>
                 <li class="formata-nomes">T</li>
                 <li class="formata-nomes">Q</li>
                 <li class="formata-nomes">Q</li>
                 <li class="formata-nomes">S</li>
-                <li>S</li>
+                <li class="formata-nomes">S</li>
             </ul>
 
             <div *ngFor="let semana of semanas; let i = index">
@@ -38,5 +38,33 @@
             <button class="btn-agendar" (click)="abrirModal()">Agendar</button>
         </div>
     </div>
+
+    <div class="container-agenda">
+        <table class="tabela-agenda-semanal">
+            <div class="dia-semana">
+                <h1>segunda</h1>
+            </div>
+            <div class="dia-semana">
+                <h1>terca</h1>
+            </div>
+            <div class="dia-semana">
+                <h1>quarta</h1>
+            </div>
+            <div class="dia-semana">
+                <h1>quinta</h1>
+            </div>
+            <div class="dia-semana">
+                <h1>sexta</h1>
+            </div>  
+            <div class="dia-semana">
+                <h1>sabado</h1>
+            </div>
+            <div class="dia-semana">
+                <h1>domingo</h1>
+            </div>
+        </table>
+    </div>
+
+    <app-modal-agendar *ngIf="modalAberto"></app-modal-agendar>
 
 </div>
